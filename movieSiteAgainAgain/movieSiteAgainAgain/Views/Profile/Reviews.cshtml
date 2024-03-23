@@ -1,0 +1,80 @@
+﻿@model List<UserReviewMovie>
+@{
+	User currentUser = TempData["userAcount"] as User;
+}
+<div class="hero user-hero">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="hero-ct">
+						<h1>@currentUser.userAccountName</h1>
+						<ul class="breadcumb">
+							<li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+						<li class="active"><span class="ion-ios-arrow-right"></span><a asp-controller="Profile" asp-action="Profile">Profile</a></li>
+							<li> <span class="ion-ios-arrow-right"></span>Reviews</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-single">
+		<div class="container">
+			<div class="row ipad-width2">
+				<div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="user-information">
+						<div class="user-img">
+						<img src="~/userimage/@currentUser.userAvatar" alt="profile picture" style="border-radius:50%; width:120px;height:120px"><br>
+						<a asp-controller="Profile" asp-action="changeAvatar" class="redbtn">Change avatar</a>
+						</div>
+						<div class="user-fav">
+							<p>Account Details</p>
+							<ul>
+							<li><a asp-controller="Profile" asp-action="userfavoritelist">Favorite movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userTopTen">Top 10 movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userrate">Rated movies</a></li>
+							<li><a asp-controller="Profile" asp-action="Reviews">Reviews</a></li>
+							</ul>
+						</div>
+						<div class="user-fav">
+							<ul>
+							<li><a asp-action="Logout" asp-controller="Profile">Log out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9 col-sm-12 col-xs-12">
+				@{
+					List<Movie> reviewdMovies = TempData["reviewdMovies"] as List<Movie>;
+					
+					<div class="topbar-filter">
+						<p>Found <span>@Model.Count reviews</span> in total</p>
+					</div>
+					foreach (var item in Model)
+					{
+						Movie currentMovie = new Movie();
+						foreach (var item2 in reviewdMovies)
+						{
+							if (item2.movieId == item.movieId)
+							{
+								currentMovie = item2;
+								break;
+							}
+						}
+						<div class="movie-item-style-2 userrate ">
+								<div class="mv-item-infor">
+								<h6><a asp-controller="Movie" asp-action="moviesingle" asp-route-id="@currentMovie.movieId">@currentMovie.movieName<span> (@currentMovie.date)</span></a></h6>
+									<p class="time sm-text">your reviews:</p>
+									<h6>@item.headReview</h6>
+									<p class="time sm">@item.reviewDate</p>
+									<p>@item.movieReview</p>
+								</div>
+							</div>
+						}
+					}
+					
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,89 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = movieSiteAgainAgain
+build_property.RootNamespace = movieSiteAgainAgain
+build_property.ProjectDir = E:\Projects\Review Movie Project\movieSiteAgainAgain\movieSiteAgainAgain\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Projects\Review Movie Project\movieSiteAgainAgain\movieSiteAgainAgain
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Movie/celebritysingle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVcY2VsZWJyaXR5c2luZ2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Movie/currentReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVcY3VycmVudFJldmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Movie/moviesingle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVcbW92aWVzaW5nbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/changeAvatar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxjaGFuZ2VBdmF0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/Reviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxSZXZpZXdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/userfavoritelist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVx1c2VyZmF2b3JpdGVsaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/userrate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVx1c2VycmF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Profile/userTopTen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVx1c2VyVG9wVGVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Projects/Review Movie Project/movieSiteAgainAgain/movieSiteAgainAgain/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-plhwlqv1gq

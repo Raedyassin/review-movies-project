@@ -1,0 +1,85 @@
+﻿@model Actor
+<div class="hero hero3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-single movie-single cebleb-single">
+		<div class="container">
+			<div class="row ipad-width">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="mv-ceb">
+						<img src="~/images/uploads/Actor/@Model.actorPicture" alt="">
+					</div>
+				</div>
+				<div class="col-md-8 col-sm-12 col-xs-12">
+					<div class="movie-single-ct">
+						<h1 class="bd-hd">@Model.actorName</h1>
+						<div class="movie-tabs">
+							<div class="tabs">
+								<ul class="tab-links tabs-mv">
+									<li class="active"><a href="#overviewceb">Overview</a></li>
+									<li><a href="#filmography">filmography</a></li>
+								</ul>
+								<div class="tab-content">
+									<div id="overviewceb" class="tab active">
+										<div class="row">
+											<div class="col-md-8 col-sm-12 col-xs-12">
+												<p>
+													@Model.actorDescription
+												</p>
+												
+											</div>
+										
+										</div>
+									</div>
+									
+									<div id="filmography" class="tab">
+										<div class="row">
+										@{
+											List<ActorInMovie> actorInMovie = ViewBag.thisActorInMovies;
+											List<Movie> MovieLists = TempData["thisMovieList"] as List<Movie>;
+											Movie currrentMovie = new Movie();
+											<div class="topbar-filter">
+													<p>Found <span>@actorInMovie.Count movies</span> in total</p>
+											</div>
+											foreach (var item in actorInMovie)
+											{
+
+												foreach (var item2 in MovieLists)
+												{
+													if(item2.movieId==item.movieId)
+													{
+														currrentMovie = item2;
+														break;
+													}
+												}
+													<div class="mvcast-item">
+														<div class="cast-it">
+															<div class="cast-left cebleb-film">
+															<img src="~/images/uploads/movies/@currrentMovie.poster" alt="" style="width:100px; height:153px; border-radius:7%;">
+																<div>
+																<a asp-controller="Movie" asp-action="moviesingle" asp-route-id="@currrentMovie.movieId">@currrentMovie.movieName </a>
+																	<p>@currrentMovie.date</p>
+																</div>
+															</div>
+														</div>
+													</div>
+											}
+
+											}
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

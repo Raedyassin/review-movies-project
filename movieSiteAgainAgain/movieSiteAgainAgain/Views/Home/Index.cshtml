@@ -1,0 +1,28 @@
+@model List<Movie>
+<div class="slider movie-items">
+	<div class="container">
+		<div class="row">
+	    	<div  class="slick-multiItemSlider">
+				@{
+					foreach (var item in Model)
+					{
+						<div class="movie-item">
+							<a asp-controller="Movie" asp-action="moviesingle" asp-route-id="@item.movieId">
+								<div class="mv-img">
+									<img src="~/images/uploads/movies/@item.poster" alt="" width="285" height="437"> 
+								</div>
+							</a>
+	    					<div class="title-in">
+								<div class="cate">
+										<span class="blue" style="color:white"><b>@item.genre</b></span>
+	    						</div>
+								<h6><a asp-controller="Movie" asp-action="moviesingle" asp-route-id="@item.movieId">@item.movieName</a></h6>
+	    						<p><i class="ion-android-star"></i><span>@item.averageRating</span> /10</p>
+	    					</div>
+	    				</div>	
+					}
+				}
+	    	</div>
+	    </div>
+	</div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model List<Movie>
+@{
+	User usr = TempData["userAcount"] as User;
+}
+<div class="hero user-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="hero-ct">
+					<h1>@usr.userAccountName</h1>
+					<ul class="breadcumb">
+						<li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+						<li class="active"><span class="ion-ios-arrow-right"></span>Search</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-single userfav_list">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div typeof="porder:2px">
+				<div class="topbar-filter user">
+					<p>Found <span>@Model.Count movies</span> in total</p>
+				</div>
+				<div class="flex-wrap-movielist user-fav-list" >
+
+
+					@{
+						if (Model.Count == 0)
+						{
+							<h1 style="color:white">No Result</h1>
+						}
+						else
+						{
+							foreach (var item in Model)
+							{
+								//style="width:169px; height:261px"
+								<div class="movie-item-style-2">
+									<img style="width:200px; height:300px" src="~/images/uploads/movies/@item.poster" alt="">
+									<div class="mv-item-infor">
+										<h6><a asp-controller="Movie" asp-action="moviesingle" asp-route-id="@item.movieId">@item.movieName <span>@item.date</span></a></h6>
+										<p class="rate"><i class="ion-android-star"></i><span>@item.averageRating</span> /10</p>
+										<p class="describe">@item.description</p>
+										<p class="run-time"> Run Time: @item.runTime’    .     <span>MMPA: @item.movieMMPA </span></p>
+										<p>Director: <a>@item.directors</a></p>
+
+									</div>
+								</div>
+							}
+						}
+					}
+
+				</div>
+			</div>
+		</div>
+	</div>

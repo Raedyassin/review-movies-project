@@ -1,0 +1,96 @@
+@model User
+<div class="hero user-hero">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="hero-ct">
+						<h1>@Model.userAccountName</h1>
+						<ul class="breadcumb">
+						<li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+							<li> <span class="ion-ios-arrow-right"></span>Profile</li>
+						</ul>
+					</div>
+				</div>	
+			</div>
+		</div>
+</div>
+
+<div class="page-single">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="user-information">
+					<div class="user-img">
+						<img src="~/userimage/@Model.userAvatar" alt="profile picture" style="border-radius:50%; width:120px;height:120px"><br>
+						<a asp-controller="Profile" asp-action="changeAvatar" class="redbtn">Change avatar</a>
+					</div>
+					<div class="user-fav">
+						<p>Account Details</p>
+						<ul>
+							<li><a asp-controller="Profile" asp-action="userfavoritelist">Favorite movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userTopTen">Top 10 movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userrate">Rated movies</a></li>
+							<li><a asp-controller="Profile" asp-action="Reviews">Reviews</a></li>
+						</ul>
+					</div>
+					<div class="user-fav">
+						<ul>
+							<li><a asp-action="Logout" asp-controller="Profile">Log out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="form-style-1 user-pro" action="#">
+				    <form >
+						<h4>1. Profile details</h4>
+						<div class="row">
+							<div class="col-md-6 form-it">
+								<label>Username</label>
+								<input type="text" value="@Model.userAccountName" style="color:white; background-color:#0a213a; font-size:small" name="usAccountName" readonly>
+							</div>
+							<div class="col-md-6 form-it">
+								<label>Email Address</label>
+								<input type="text" value="@Model.userEmail" style="color:white; background-color:#0a213a; font-size:small" name="usEmail" readonly>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="form-style-1 user-pro" action="#">
+						<form asp-action="ChangeInformation">
+								<h4>2. Change details</h4>
+								<div class="row">
+									<div class="col-md-6 form-it">
+										<label>Username</label>
+										<input type="text" placeholder="@Model.userAccountName" style="color:white; background-color:#0a213a; font-size:small" name="userAccountName">
+									</div>
+								
+									<div class="col-md-6 form-it">
+										<label>New Password</label>
+										<input type="text" style="color:white; background-color:#0a213a; font-size:small" name="newPassword" placeholder="**********">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2">
+										<input class="submit" type="submit" value="change">
+									</div>
+								</div>
+						</form>
+				</div>
+				<div  class="form-style-1 user-pro" action="#">
+					<form asp-action="RemoveAccount">
+						<h4>3. Remove Acount</h4>
+						<div class="row">
+							<div class="col-md-4">
+								
+								<input class="submit" type="submit" value="Remove Account">
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>

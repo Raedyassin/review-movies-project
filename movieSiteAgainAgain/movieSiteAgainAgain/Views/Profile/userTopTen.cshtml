@@ -1,0 +1,96 @@
+﻿@model List<Movie>
+@{
+	List<UserRatedMovie> URM = TempData["rates"] as List<UserRatedMovie>;
+	URM = URM.OrderByDescending(item => ((UserRatedMovie)item).rate).ToList();
+	User currentUser = TempData["userAcount"] as User;
+}
+<div class="hero user-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1>@currentUser.userAccountName</h1>
+					<ul class="breadcumb">
+						<li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+						<li class="active"><span class="ion-ios-arrow-right"></span><a asp-controller="Profile" asp-action="Profile">Profile</a></li>
+						<li> <span class="ion-ios-arrow-right"></span>Top 10 movies</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="page-single">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="user-information">
+					<div class="user-img">
+						<img src="~/userimage/@currentUser.userAvatar" alt="profile picture" style="border-radius:50%; width:120px;height:120px"><br>
+						<a asp-controller="Profile" asp-action="changeAvatar" class="redbtn">Change avatar</a>
+					</div>
+					<div class="user-fav">
+						<p>Account Details</p>
+						<ul>
+							<li><a asp-controller="Profile" asp-action="userfavoritelist">Favorite movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userTopTen">Top 10 movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userrate">Rated movies</a></li>
+							<li><a asp-controller="Profile" asp-action="Reviews">Reviews</a></li>
+						</ul>
+					</div>
+					<div class="user-fav">
+						<ul>
+							<li><a asp-action="Logout" asp-controller="Profile">Log out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="topbar-filter">
+					@{
+						int len = 10;
+						if (Model.Count>len)
+						{	
+							<p>Found <span>@len rates</span> in total</p>
+						}
+						else
+						{
+							len = Model.Count;
+							<p>Found <span>@len rates</span> in total</p>
+						}
+					}
+				</div>
+
+				@{
+					foreach (var item in URM)
+					{
+						foreach (var item2 in Model)
+						{
+							if (item2.movieId == item.movieId)
+							{
+							
+								<div class="movie-item-style-2 userrate">
+									<img src="~/images/uploads/movies/@item2.poster" alt="" style="width:100px; height:153px; border-radius:7%;">
+									<div class="mv-item-infor">
+										<h6><a asp-controller="Movie" asp-action="moviesingle" asp-route-id="@item2.movieId"> @item2.movieName <span>@item2.date</span></a></h6>
+										<p class="time sm-text">your rate:</p>
+										<p class="rate"><i class="ion-android-star"></i><span>@item.rate</span> /10</p>
+								
+									</div>
+								</div>
+								break;
+							}
+						}
+						len--;
+						if(len==0)
+						{
+							break;
+						}
+					}
+				}
+			</div>
+		</div>
+	</div>
+</div>

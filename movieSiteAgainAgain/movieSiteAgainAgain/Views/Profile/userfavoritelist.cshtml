@@ -1,0 +1,74 @@
+﻿@model List<Movie>
+@{
+	User usr = TempData["userAcount"] as User;
+}
+<div class="hero user-hero">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="hero-ct">
+						<h1>@usr.userAccountName</h1>
+						<ul class="breadcumb">
+							<li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+						<li class="active"><span class="ion-ios-arrow-right"></span><a asp-controller="Profile" asp-action="Profile">Profile</a></li>
+							<li> <span class="ion-ios-arrow-right"></span>Favorite movies</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+<div class="page-single userfav_list">
+		<div class="container">
+			<div class="row ipad-width2">
+				<div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="user-information">
+						<div class="user-img">
+						<img src="~/userimage/@usr.userAvatar" alt="profile picture" style="border-radius:50%; width:120px;height:120px"><br>
+						<a asp-controller="Profile" asp-action="changeAvatar" class="redbtn">Change avatar</a>
+						</div>
+						<div class="user-fav">
+							<p>Account Details</p>
+							<ul>
+							<li><a asp-controller="Profile" asp-action="userfavoritelist">Favorite movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userTopTen">Top 10 movies</a></li>
+							<li><a asp-controller="Profile" asp-action="userrate">Rated movies</a></li>
+							<li><a asp-controller="Profile" asp-action="Reviews">Reviews</a></li>
+							</ul>
+						</div>
+						<div class="user-fav">
+							<ul>
+							<li><a asp-action="Logout" asp-controller="Profile">Log out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-9 col-sm-12 col-xs-12">
+					<div class="topbar-filter user">
+						<p>Found <span>@Model.Count movies</span> in total</p>
+					</div>
+					<div class="flex-wrap-movielist user-fav-list">
+
+					
+						@{foreach (var item in Model)
+							{
+								<div class="movie-item-style-2">
+									<img style="width:169px; height:261px" src="~/images/uploads/movies/@item.poster" alt="">
+									<div class="mv-item-infor">
+									<h6><a asp-controller="Movie" asp-action="moviesingle" asp-route-id="@item.movieId">@item.movieName <span>@item.date</span></a></h6>
+										<p class="rate"><i class="ion-android-star"></i><span>@item.averageRating</span> /10</p>
+										<p class="describe">@item.description</p>
+										<p class="run-time"> Run Time: @item.runTime’    .     <span>MMPA: @item.movieMMPA </span></p>
+										<p>Director: <a>@item.directors</a></p>
+								
+									</div>
+								</div>
+							}
+						}
+
+				</div>
+			</div>
+		</div>
+</div>

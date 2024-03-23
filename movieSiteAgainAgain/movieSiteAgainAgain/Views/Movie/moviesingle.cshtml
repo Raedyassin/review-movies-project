@@ -1,0 +1,190 @@
+﻿@model Movie
+<body>
+
+	<div class="hero mv-single-hero">
+			
+	</div>
+
+	<div class="page-single movie-single movie_single">
+		<div class="container">
+			<div class="row ipad-width2">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<div class="movie-img sticky-sb">
+						<img src="~/images/uploads/movies/@Model.poster" alt="">
+						<div class="movie-btn">
+							<div class="btn-transform transform-vertical red">
+								<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
+								<div><a href="@Model.trailer" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-8 col-sm-12 col-xs-12">
+					<div class="movie-single-ct main-content">
+						<h1 class="bd-hd">@Model.movieName <span>@Model.date</span></h1>
+						<div class="social-btn">
+							<a asp-controller="Movie" asp-action="AddToFavorite" asp-route-id="@Model.movieId" class="parent-btn"><i class="ion-heart"></i> </a>
+						</div>
+
+						<div class="movie-rate">
+							<div class="rate">
+								<i class="ion-android-star"></i>
+								<p>
+									<span>@Model.averageRating</span> /10<br>
+								</p>
+							</div>
+							<div class="rate-star">
+								<p>Rate This Movie:  </p>
+								<form method="post" asp-controller="Movie" asp-action="AddRate">
+									<div class="input-container">
+										<input type="hidden" name="id" value="@Model.movieId" />
+										<input type="number" min="1" max="10" style="background-color:#2C3440; color:white" name="rate"/>
+										<button type="submit" style="background-color:#2C3440; color:white">Rate</button>
+									</div>
+								</form>
+
+
+							</div>
+							<div class="rate-star">
+								<p>Your Rate:  </p>
+								<input type="number" min="1" max="10" style="background-color:#2C3440; color:white" value="@ViewBag.rate" readonly/>
+							</div>
+						</div>
+
+						<div class="movie-tabs">
+							<div class="tabs">
+								<ul class="tab-links tabs-mv">
+									<li class="active"><a href="#overview">Overview</a></li>
+									<li><a href="#reviews"> Reviews</a></li>
+								</ul>
+								<div class="tab-content">
+									<div id="overview" class="tab active">
+										<div class="row">
+											<div class="col-md-8 col-sm-12 col-xs-12">
+												<p>@Model.description</p>
+												<div class="title-hd-sm">
+													<h4>cast</h4>
+												</div>
+												<!-- movie cast -->
+												<div class="mvcast-item">
+													@{
+														foreach (var item in (List<ActorInMovie>)TempData["AIM"])
+														{
+															
+															<div class="cast-it">
+																<div class="cast-left">
+																	<a asp-controller="Movie" asp-action="celebritysingle" asp-route-actId="@item.actorId" name="actId">@item.actName</a>
+																</div>
+																<p>@item.roleName</p>
+															</div>
+														}
+														
+													}
+												</div>
+
+											</div>
+
+											<div class="col-md-4 col-xs-12 col-sm-12">
+												<div class="sb-it">
+													<h6>Director: </h6>
+													<a><p>@Model.directors</p></a>
+												</div>
+												<div class="sb-it">
+													<h6>Writer: </h6>
+													<p><a>@Model.writers</a></p>
+												</div>
+												<div class="sb-it">
+													<h6>Genres:</h6>
+													<p>@Model.genre</p>
+												</div>
+												<div class="sb-it">
+													<h6>Run Time:</h6>
+													<p>@Model.runTime</p>
+												</div>
+												<div class="sb-it">
+													<h6>MMPA Rating:</h6>
+													<p>@Model.movieMMPA</p>
+												</div>
+												<div class="sb-it">
+													<h6>Plot Keywords:</h6>
+													<p>
+														@Model.keyWord
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div id="reviews" class="tab review">
+										<div class="row">
+											<div class="rv-hd">
+												<form asp-controller="Movie" asp-action="currentReview" method="post">
+													<input type="hidden" name="id" value="@Model.movieId"/>
+													<input type="hidden" name="name" value="@Model.movieName" />
+													<button type="submit" class="redbtn">Write Review</button>
+												</form >
+											</div>
+											<hr />
+											@{
+												List<User> userInReview = TempData["userInReview"] as List<User>;
+												List<UserReviewMovie> Rvws = TempData["Rvws"] as List<UserReviewMovie>;
+
+												<div class="topbar-filter">
+													<p>Found <span>@userInReview.Count reviews</span> in total</p>
+												</div>
+												foreach (var item in Rvws)
+												{
+													User cU=new User();
+													foreach (var item2 in userInReview)
+													{
+														if(item2.userEmail==item.userEmail)
+														{
+															cU = item2;
+															break;
+														}
+													}
+																	
+													<div class="mv-user-review-item">
+														<div class="user-infor">
+															<img src="~/userimage/@cU.userAvatar" style="border-radius:50%; width:60px;height:60px" />
+															<div>
+																<h3>@item.headReview</h3>
+																<p class="time">
+																	@item.reviewDate
+																	<a style="color:white">by @cU.userAccountName </a>
+																	
+																</p>
+															</div>
+														</div>
+														<br/>
+														<p style=" margin-left: 90px">@item.movieReview</p>
+													</div>	
+												}
+											}
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<style>
+
+.input-container {
+  display: flex;
+}
+
+.input-container input {
+  margin-right: 10px;
+}
+</style>
+											
